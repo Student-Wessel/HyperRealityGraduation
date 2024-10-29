@@ -1,18 +1,16 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{4A1252C1-48D5-FAC4-5D79-B087C46CC3F5}",
+	"EngineAssociation": "{C399533E-4AA9-6633-E4DE-B1850686BEC1}",
 	"Category": "",
 	"Description": "",
-	"Plugins": [
+	"Modules": [
 		{
-			"Name": "OculusXR",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/8313d8d7e7cf4e03a33e79eb757bccba",
-			"SupportedTargetPlatforms": [
-				"Win64",
-				"Android"
-			]
-		},
+			"Name": "HyperRealism_VR",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
 		{
 			"Name": "Water",
 			"Enabled": true
@@ -51,11 +49,6 @@
 		{
 			"Name": "ModelingToolsEditorMode",
 			"Enabled": true
-		},
-		{
-			"Name": "BlueprintAssist",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/9e895371fa3a471c87337860d6f341ff"
 		},
 		{
 			"Name": "SERIALCOM",
