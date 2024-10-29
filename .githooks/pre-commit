@@ -1,0 +1,13 @@
+#!/bin/sh
+
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+if [ "$current_branch" = "develop" ]; then
+    echo "Direct commits to the develop branch are not allowed."
+    exit 1
+fi
+
+if [ "$current_branch" = "main" ]; then
+    echo "Direct commits to the main branch are not allowed."
+    exit 1
+fi

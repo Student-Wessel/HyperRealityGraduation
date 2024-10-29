@@ -1,0 +1,45 @@
+name: Merge Dev into Feature Branches
+on:
+  workflow_dispatch:
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install GitHub CLI
+      uses: actions/setup-go@v2
+      with:
+        go-version: '1.15.x'
+
+    - name: Merge Changes
+      run: |
+        # List of names
+        names=("liam" "wouter" "wessel" "olaf" "eline" "chiel" "bo")
+
+        # Loop through names and merge dev into feature branches
+        for name in "${names[@]}"; do
+          branch="${name}-feature"
+
+          # Debugging output
+          echo "Attempting to checkout branch: $branch"
+          
+          # Attempt to checkout the branch
+          git fetch origin "$branch:$branch"
+          git checkout "$branch"
+
+          # Check if checkout was successful
+          if [ $? -ne 0 ]; then
+            echo "Failed to checkout branch: $branch"
+            continue
+          fi
+
+          # Merge dev into the branch
+          git merge develop --no-edit
+
+          # Push the changes
+          git push origin "$branch"
+        done
