@@ -16,7 +16,7 @@ class HYPERREALISM_VR_API UHyperRealityRoomUtils : public UBlueprintFunctionLibr
 	
 public:
 	UFUNCTION(BlueprintCallable, Category = "RoomUtils")
-	static TArray<FTransform>SortWalls(const TArray<FTransform>& Walls, const FVector PlayerForward, const FVector RoomCenter);
+	static TArray<FTransform>SortWalls(const TArray<FTransform>& Walls, const FVector PlayerStartPosition, const FVector RoomCenter);
 	
 	
 };
